@@ -1,6 +1,6 @@
 import { createClient } from 'next-sanity'
 
-import { apiVersion, dataset, projectId } from '../env.ts.local'
+import { apiVersion, dataset, projectId } from '../env.ts'
 
 export const client = createClient({
   projectId,

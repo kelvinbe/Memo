@@ -1,4 +1,8 @@
-import Image from "next/image";
+import { groq } from 'next-sanity';
+import { client } from '@/sanity/lib/client'; // Adjust path if needed (usually generated)
+import Image from 'next/image';
+import Link from 'next/link';
+import { PortableText } from '@portabletext/react';  // ← Add this import
 
 const topics = [
   {
@@ -15,7 +19,20 @@ const topics = [
   },
 ];
 
-export default function TrendingTopics() {
+const query = groq`*[_type == "post" && !(_id in path("drafts.**"))] | order(publishedAt desc) {
+  _id,
+  title,
+  slug,
+  publishedAt,
+  "mainImageUrl": mainImage.asset->url,
+  "alt": mainImage.alt,
+  body
+}`;
+
+export default async function TrendingTopics() {
+  const posts = await client.fetch(query);
+
+  console.log('Fetched posts for TrendingTopics:', posts);
   return (
     <section className="px-6 md:px-10 py-16 md:py-20 bg-[#EFE9ED]">
       
@@ -24,7 +41,7 @@ export default function TrendingTopics() {
       </h2>
 
       <div className="grid gap-8 md:grid-cols-3">
-        {topics.map((topic, index) => (
+        {posts.map((topic, index) => (
           <div
             key={index}
             className="border p-5 md:p-6 flex flex-col justify-between bg-white/30"
@@ -34,13 +51,15 @@ export default function TrendingTopics() {
             </p>
 
             <Image
-              src={topic.image}
-              alt={topic.title}
+              src={topic.mainImageUrl || '/fallback.jpg'}
+              alt={topic.alt || topic.title}
               width={400}
               height={260}
               className="object-cover"
             />
-
+           <div className="prose prose-sm max-w-none text-gray-700">
+              <PortableText value={topic.body || []} />
+            </div>
             <div className="flex gap-4 mt-4 text-xs md:text-sm opacity-70">
               <span>👁 0</span>
               <span>♡</span>
