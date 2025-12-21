@@ -1,9 +1,10 @@
 export default function Footer() {
   return (
-    <footer className="bg-[#F8E7D5] px-10 py-20">
-      <div className="grid md:grid-cols-3 gap-12 items-start">
+    <footer className="bg-[#F8E7D5] px-6 md:px-10 py-16 md:py-20">
+      
+      <div className="grid gap-10 md:grid-cols-3 items-start">
         
-        <h2 className="font-serif text-4xl">
+        <h2 className="font-serif text-3xl md:text-4xl">
           Stay Connected with Us
         </h2>
 
@@ -19,7 +20,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mt-16 flex justify-between text-xs opacity-70">
+      <div className="mt-12 flex flex-col md:flex-row gap-4 md:gap-0 justify-between text-xs opacity-70">
         <p>© 2035 by MEMO SOME.</p>
         <p>Powered and secured by Wix</p>
       </div>

@@ -3,18 +3,9 @@ import Footer from "@/components/Footer";
 import Image from "next/image";
 
 const stories = [
-  {
-    title: "Youth Leadership in Conservation",
-    image: "/topic1.jpg",
-  },
-  {
-    title: "Wildlife Policy and Community Impact",
-    image: "/topic3.jpg",
-  },
-  {
-    title: "Building the Next Generation of Conservationists",
-    image: "/topic2.jpg",
-  },
+  { title: "Youth Leadership in Conservation", image: "/topic1.jpg" },
+  { title: "Wildlife Policy and Community Impact", image: "/topic3.jpg" },
+  { title: "Building the Next Generation of Conservationists", image: "/topic2.jpg" },
 ];
 
 export default function FeaturedPage() {
@@ -22,14 +13,14 @@ export default function FeaturedPage() {
     <>
       <Navbar />
 
-      <main className="px-10 py-24">
-        <h1 className="font-serif text-5xl mb-16">
+      <main className="px-6 md:px-10 py-20 md:py-24">
+        <h1 className="font-serif text-4xl md:text-5xl mb-12 md:mb-16">
           Featured Stories
         </h1>
 
-        <div className="grid md:grid-cols-3 gap-10">
+        <div className="grid gap-8 md:grid-cols-3">
           {stories.map((story, index) => (
-            <div key={index} className="border p-6">
+            <div key={index} className="border p-5 bg-white/30">
               <Image
                 src={story.image}
                 alt={story.title}
@@ -37,7 +28,7 @@ export default function FeaturedPage() {
                 height={260}
                 className="object-cover mb-4"
               />
-              <h2 className="font-serif text-xl">
+              <h2 className="font-serif text-lg md:text-xl">
                 {story.title}
               </h2>
             </div>

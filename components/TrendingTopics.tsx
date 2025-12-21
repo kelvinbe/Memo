@@ -17,28 +17,31 @@ const topics = [
 
 export default function TrendingTopics() {
   return (
-    <section className="px-10 py-20 bg-[#EFE9ED]">
-      <h2 className="font-serif text-4xl mb-12">
+    <section className="px-6 md:px-10 py-16 md:py-20 bg-[#EFE9ED]">
+      
+      <h2 className="font-serif text-3xl md:text-4xl mb-10 md:mb-12">
         Trending Topics
       </h2>
 
-      <div className="grid md:grid-cols-3 gap-8">
+      <div className="grid gap-8 md:grid-cols-3">
         {topics.map((topic, index) => (
           <div
             key={index}
-            className="border p-6 flex flex-col justify-between"
+            className="border p-5 md:p-6 flex flex-col justify-between bg-white/30"
           >
-            <p className="text-sm mb-6">{topic.title}</p>
+            <p className="text-xs md:text-sm mb-5">
+              {topic.title}
+            </p>
 
             <Image
               src={topic.image}
               alt={topic.title}
-              width={300}
-              height={200}
+              width={400}
+              height={260}
               className="object-cover"
             />
 
-            <div className="flex gap-4 mt-4 text-sm opacity-70">
+            <div className="flex gap-4 mt-4 text-xs md:text-sm opacity-70">
               <span>👁 0</span>
               <span>♡</span>
             </div>
