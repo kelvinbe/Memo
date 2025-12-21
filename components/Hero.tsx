@@ -19,11 +19,11 @@ export default function Hero() {
       {/* Content */}
       <div className="relative z-10 bg-[#FBF6EE]/95 backdrop-blur-sm px-6 md:px-12 py-10 md:py-14 text-center max-w-lg md:max-w-xl border border-[#D6C7B8]">
         
-        <h1 className="font-serif text-3xl md:text-5xl mb-4 md:mb-6 tracking-wide">
+        <h1 className="font-serif text-black text-3xl md:text-5xl mb-4 md:mb-6 tracking-wide">
           WELCOME
         </h1>
 
-        <p className="text-xs md:text-sm leading-6 md:leading-7 mb-6 md:mb-8">
+        <p className="text-xs text-black md:text-sm leading-6 md:leading-7 mb-6 md:mb-8">
           I’m Memo Some, a conservationist, policy advocate,
           and an occasional pet hoarder (it’s under control, I promise).
           <br /><br />
