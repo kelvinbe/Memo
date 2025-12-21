@@ -2,6 +2,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export default function AboutPage() {
+  console.log('Project ID:', process.env.NEXT_PUBLIC_SANITY_PROJECT_ID)
+  console.log('Dataset:', process.env.NEXT_PUBLIC_SANITY_DATASET)
   return (
     <>
       <Navbar />
