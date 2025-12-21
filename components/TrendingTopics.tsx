@@ -41,7 +41,7 @@ export default async function TrendingTopics() {
       </h2>
 
       <div className="grid gap-8 md:grid-cols-3">
-        {posts.map((topic, index) => (
+        {posts.map((topic: any, index: number) => (
           <div
             key={index}
             className="border p-5 md:p-6 flex flex-col justify-between bg-white/30"
