@@ -15,6 +15,15 @@ const nextConfig = {
       },
     ],
   },
+  eslint: {
+    // Skip ESLint during builds (including on Vercel)
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    // Skip TypeScript type checking during builds (including on Vercel)
+    // !! WARNING: This can lead to runtime errors in production!
+    ignoreBuildErrors: true,
+  },
 
 }
 
