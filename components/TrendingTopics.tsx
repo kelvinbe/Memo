@@ -3,6 +3,7 @@ import { client } from '@/sanity/lib/client'; // Adjust path if needed (usually 
 import Image from 'next/image';
 import Link from 'next/link';
 import { PortableText } from '@portabletext/react';  // ← Add this import
+import { PortableTextBlock } from '@portabletext/types'; // optional, for better body typing
 
 const topics = [
   {
@@ -24,7 +25,7 @@ interface Post {
   publishedAt: string;
   mainImageUrl: string | null;
   alt: string | null;
-  body: PortableText[]; // or any[] if you don't want to import the type
+  body: PortableTextBlock[]; // or any[] if you don't want to import the type
   // slug?: { current: string }; // uncomment if you add slug to query
 }
 
