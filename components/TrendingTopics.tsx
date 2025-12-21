@@ -18,6 +18,15 @@ const topics = [
     image: "/topic3.jpg",
   },
 ];
+interface Post {
+  _id: string;
+  title: string;
+  publishedAt: string;
+  mainImageUrl: string | null;
+  alt: string | null;
+  body: PortableText[]; // or any[] if you don't want to import the type
+  // slug?: { current: string }; // uncomment if you add slug to query
+}
 
 const query = groq`*[_type == "post" && !(_id in path("drafts.**"))] | order(publishedAt desc) {
   _id,
@@ -41,7 +50,7 @@ export default async function TrendingTopics() {
       </h2>
 
       <div className="grid gap-8 md:grid-cols-3">
-        {posts.map((topic: any, index: number) => (
+        {posts.map((topic: Post, index: number) => (
           <div
             key={index}
             className="border p-5 md:p-6 flex flex-col justify-between bg-white/30"
