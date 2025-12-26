@@ -6,7 +6,6 @@ export default function Navbar() {
     <nav className="flex text-black flex-col md:flex-row items-center justify-between px-6 md:px-10 py-4 md:py-6 bg-[#FBF6EE] gap-4">
       
       <div className="flex items-center">
-      <Image src="/some.png" alt="Logo" width={60} height={60} className="inline-block mr-2 mb-1"/>
       
       <Link href="/" className="font-serif text-xl tracking-wide">
         MEMO SOME
