@@ -7,7 +7,7 @@ export default function Navbar() {
       
       <div className="flex items-center">
       
-      <Link href="/" className="font-serif text-xl tracking-wide">
+      <Link href="/" className="font-heading text-xl tracking-wide">
         MEMO SOME
       </Link>
       </div>
