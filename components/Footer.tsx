@@ -21,8 +21,8 @@ export default function Footer() {
       </div>
 
       <div className="mt-12 flex text-black flex-col md:flex-row gap-4 md:gap-0 justify-between text-xs opacity-70">
-        <p>© 2035 by MEMO SOME.</p>
-        <p>Powered and secured by Wix</p>
+        <p>© 2026 by MEMO SOME.</p>
+        <p>Made with ❤️ by Beno</p>
       </div>
     </footer>
   );

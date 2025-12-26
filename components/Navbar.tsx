@@ -11,7 +11,8 @@ export default function Navbar() {
       <ul className="flex gap-6 text-sm">
         <li><Link href="/">Home</Link></li>
         <li><Link href="/about">About</Link></li>
-        <li><Link href="/featured">Featured Posts</Link></li>
+        <li><Link href="/blog">Blog</Link></li>
+        <li><Link href="/portfolio">Portfolio</Link></li>
       </ul>
     </nav>
   );

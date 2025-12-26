@@ -1,48 +1,102 @@
-import Image from "next/image";
+import { groq } from 'next-sanity';
+import { client } from '@/sanity/lib/client';
+import Image from 'next/image';
+import Link from 'next/link';
+import { PortableTextBlock } from '@portabletext/types';
+import { urlFor } from '@/sanity/lib/image';
 
-const topics = [
-  {
-    title: "Empowering the Next Generation: Key Leadership Skills in Conservation",
-    image: "/topic1.jpg",
-  },
-  {
-    title: "Youth Engagement in Wildlife Conservation: A Guide for Leaders",
-    image: "/topic2.jpg",
-  },
-  {
-    title: "Exploring Kenya's Wildlife Policy: Current Challenges and Solutions",
-    image: "/topic3.jpg",
-  },
-];
+interface Category {
+  _id: string;
+  title: string;
+  slug: { current: string };
+}
 
-export default function MoreRelatedTopics() {
+interface Post {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  publishedAt: string;
+  mainImage?: any;
+  body: PortableTextBlock[];
+  categories?: Category[];
+}
+
+const query = groq`
+  *[
+    _type == "post" &&
+    defined(slug.current) &&
+    !(_id in path("drafts.**"))
+  ] | order(publishedAt desc) {
+    _id,
+    title,
+    slug,
+    publishedAt,
+    mainImage,
+    categories[]->{
+      _id,
+      title,
+      slug
+    },
+    body
+  }
+`;
+
+export default async function MoreRelatedTopics() {
+  const posts: Post[] = await client.fetch(query);
+
+  // Filter posts with category title "Related"
+  const relatedPosts = posts.filter((post) =>
+    post.categories?.some((cat) => cat.title === 'Related')
+  );
+
   return (
-    <section className="px-10 py-20 bg-[#EFE9ED]">
-      <h2 className="font-serif text-4xl mb-12">
-        Must-Read Articles
+    <section className="px-6 md:px-10 py-16 md:py-20 bg-[#EFE9ED]">
+      <h2 className="font-serif text-3xl md:text-4xl mb-10 md:mb-12">
+        Must Read Articles
       </h2>
 
-      <div className="grid md:grid-cols-3 gap-8">
-        {topics.map((topic, index) => (
-          <div
-            key={index}
-            className="border p-6 flex flex-col justify-between"
+      <div className="grid gap-8 md:grid-cols-3">
+        {relatedPosts.map((topic) => (
+          <Link
+            key={topic._id}
+            href={`/posts/${topic.slug.current}`}
+            className="block hover:opacity-90 transition"
           >
-            <p className="text-sm mb-6">{topic.title}</p>
+            <div className="border border-gray-300 p-5 md:p-6 flex flex-col justify-between bg-white/30 h-full rounded-lg">
+              
+              {/* Title */}
+              <p className="text-xs md:text-sm mb-5 font-medium">
+                {topic.title}
+              </p>
 
-            <Image
-              src={topic.image}
-              alt={topic.title}
-              width={300}
-              height={200}
-              className="object-cover"
-            />
+              {/* Image */}
+              <div className="relative w-full h-[260px] mb-4 overflow-hidden rounded-md">
+                {topic.mainImage?.asset && (
+                  <Image
+                    src={urlFor(topic.mainImage)
+                      .width(600)
+                      .height(450)
+                      .url()}
+                    alt={topic.title}
+                    fill
+                    unoptimized
+                    className="object-cover"
+                  />
+                )}
+              </div>
 
-            <div className="flex gap-4 mt-4 text-sm opacity-70">
-              <span>👁 0</span>
-              <span>♡</span>
+              {/* CTA */}
+              <p className="text-sm text-gray-600">
+                Read more →
+              </p>
+
+              {/* Meta */}
+              <div className="flex gap-4 mt-4 text-xs md:text-sm opacity-70">
+                <span>👁 0</span>
+                <span>♡ 0</span>
+              </div>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </section>
