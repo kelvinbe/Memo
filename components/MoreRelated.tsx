@@ -1,9 +1,9 @@
-import { groq } from 'next-sanity';
-import { client } from '@/sanity/lib/client';
-import Image from 'next/image';
-import Link from 'next/link';
-import { PortableTextBlock } from '@portabletext/types';
-import { urlFor } from '@/sanity/lib/image';
+import { groq } from "next-sanity";
+import { client } from "@/sanity/lib/client";
+import Image from "next/image";
+import Link from "next/link";
+import { PortableTextBlock } from "@portabletext/types";
+import { urlFor } from "@/sanity/lib/image";
 
 interface Category {
   _id: string;
@@ -44,60 +44,76 @@ const query = groq`
 export default async function MoreRelatedTopics() {
   const posts: Post[] = await client.fetch(query);
 
-  // Filter posts with category title "Related"
   const relatedPosts = posts.filter((post) =>
-    post.categories?.some((cat) => cat.title === 'Related')
+    post.categories?.some((cat) => cat.title === "Related")
   );
 
   return (
-    <section className="px-6 md:px-10 py-16 md:py-20 bg-[#EFE9ED]">
-      <h2 className="font-serif text-3xl md:text-4xl mb-10 md:mb-12">
-        Must Read Articles
-      </h2>
+    <section className="relative overflow-hidden px-6 md:px-10 py-16 md:py-20 bg-[#f5f1ea]">
+      {/* ✨ Background texture (stars) */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-30
+        [background-image:radial-gradient(#cbb9a5_1px,transparent_1px)]
+        [background-size:140px_140px]"
+      />
 
-      <div className="grid gap-8 md:grid-cols-3">
-        {relatedPosts.map((topic) => (
-          <Link
-            key={topic._id}
-            href={`/posts/${topic.slug.current}`}
-            className="block hover:opacity-90 transition"
-          >
-            <div className="border border-gray-300 p-5 md:p-6 flex flex-col justify-between bg-white/30 h-full rounded-lg">
-              
-              {/* Title */}
-              <p className="text-xs md:text-sm mb-5 font-medium">
-                {topic.title}
-              </p>
+      {/* ✨ Soft paper gradient */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0
+        bg-gradient-to-b from-[#f6f2eb] to-[#efe9df]"
+      />
 
+      {/* ✨ Sunburst (top-right) */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rounded-full opacity-30
+        [background:repeating-conic-gradient(rgba(200,160,120,.35)_0deg_2deg,transparent_2deg_12deg)]"
+      />
+
+      {/* Content */}
+      <div className="relative z-10">
+        <h2 className="font-text-3xl md:text-4xl mb-10 md:mb-12">
+          Must Read Articles
+        </h2>
+
+        <div className="grid gap-6 md:grid-cols-3">
+          {relatedPosts.map((topic) => (
+            <Link
+              key={topic._id}
+              href={`/posts/${topic.slug.current}`}
+              className="block rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition relative group"
+            >
               {/* Image */}
-              <div className="relative w-full h-[260px] mb-4 overflow-hidden rounded-md">
+              <div className="relative w-full h-64">
                 {topic.mainImage?.asset && (
                   <Image
-                    src={urlFor(topic.mainImage)
-                      .width(600)
-                      .height(450)
-                      .url()}
+                    src={urlFor(topic.mainImage).url()}
                     alt={topic.title}
-                    fill
+                    width={600}
+                    height={400}
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                     unoptimized
-                    className="object-cover"
                   />
                 )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+              </div>
+
+              {/* Title */}
+              <div className="absolute bottom-4 left-4 right-4 text-white z-10">
+                <p className="font-semibold text-lg md:text-xl drop-shadow-lg">
+                  {topic.title}
+                </p>
               </div>
 
               {/* CTA */}
-              <p className="text-sm text-gray-600">
-                Read more →
-              </p>
-
-              {/* Meta */}
-              <div className="flex gap-4 mt-4 text-xs md:text-sm opacity-70">
-                <span>👁 0</span>
-                <span>♡ 0</span>
+              <div className="absolute bottom-4 right-4 z-10 text-white opacity-80 text-sm">
+                Read →
               </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );

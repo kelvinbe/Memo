@@ -4,8 +4,8 @@ export default function Footer() {
       
       <div className="grid gap-10 md:grid-cols-3 items-start">
         
-        <h2 className="font-serif text-3xl md:text-4xl">
-          Stay Connected with Us
+        <h2 className="text-3xl md:text-4xl">
+          Stay Connected with Memo
         </h2>
 
         <div className="text-sm space-y-2">
