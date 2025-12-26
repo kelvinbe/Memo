@@ -54,7 +54,7 @@ export default async function TrendingTopics() {
         {posts.map((topic: Post, index: number) => (
           <div
             key={index}
-            className="border p-5 md:p-6 flex flex-col justify-between bg-white/30"
+            className="border border-black-300 p-5 md:p-6 flex flex-col justify-between bg-white/30"
           >
             <p className="text-xs md:text-sm mb-5">
               {topic.title}
@@ -63,12 +63,13 @@ export default async function TrendingTopics() {
             <Image
               src={topic.mainImageUrl || '/fallback.jpg'}
               alt={topic.alt || topic.title}
-              width={400}
+              width={300}
               height={260}
               className="object-cover"
             />
            <div className="prose prose-sm max-w-none text-gray-700">
-              <PortableText value={topic.body || []} />
+            
+            Read more about this topic
             </div>
             <div className="flex gap-4 mt-4 text-xs md:text-sm opacity-70">
               <span>👁 0</span>
