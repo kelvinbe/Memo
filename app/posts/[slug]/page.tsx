@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { PortableText } from '@portabletext/react';
 import { notFound } from 'next/navigation';
 import { urlFor } from '@/sanity/lib/image';
+import Navbar from '@/components/Navbar';
 
 type Props = {
   params: Promise<{
@@ -76,7 +77,9 @@ export default async function PostPage({ params }: Props) {
 
 
   return (
-    <article className="max-w-4xl mx-auto px-6 py-16">
+    <>
+    <Navbar />
+    <article className="bg-white max-w-4xl mx-auto px-6 py-16">
       <h1 className="font-serif text-4xl md:text-5xl mb-8">
         {post.title}
       </h1>
@@ -97,5 +100,6 @@ export default async function PostPage({ params }: Props) {
         <PortableText value={post.body ?? []} />
       </div>
     </article>
+    </>
   );
 }
