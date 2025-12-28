@@ -48,7 +48,7 @@ export default async function BlogPage() {
             <Link
               key={post._id}
               href={`/posts/${post.slug.current}`}
-              className="group block border border-[#E5DED5] bg-white hover:bg-[#F6F0E7] transition"
+              className="group block border rounded-lg shadow-lg border-[#E5DED5] bg-white hover:bg-[#F6F0E7] transition"
             >
               <article className="grid md:grid-cols-[420px_1fr] gap-8 p-6 md:p-8">
                 

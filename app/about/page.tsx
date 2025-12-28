@@ -40,17 +40,13 @@ const settings = {
       <main className="bg-white">
 
         {/* Carousel Section */}
- {/* Carousel Section */}
+{/* Carousel Section */}
 <section className="py-16 px-4 md:py-20 md:px-16">
-  <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
     
     {/* Left: Image Carousel */}
-    <div className="w-full">
-      <Slider
-        {...settings}
-        arrows={false}              // better mobile UX
-        dots={true}
-      >
+    <div className="w-full order-1 md:order-1">
+      <Slider {...settings} arrows={false} dots={true}>
         {images.map((src, idx) => (
           <div key={idx}>
             <div className="relative w-full h-[300px] sm:h-[400px] md:h-[500px]">
@@ -68,8 +64,8 @@ const settings = {
       </Slider>
     </div>
 
-    {/* Right Content */}
-    <div className="space-y-6 text-center md:text-left">
+    {/* Right Content: About Me */}
+    <div className="space-y-6 text-center md:text-left order-2 md:order-2">
       <h1 className="text-4xl md:text-5xl font-heading text-[#2C1F2B]">
         About Me
       </h1>
@@ -81,7 +77,6 @@ const settings = {
 
       {/* Social Icons */}
       <div className="flex justify-center md:justify-start space-x-4 text-gray-800 text-xl">
-        <a href="#" aria-label="Facebook" className="hover:text-[#4267B2]"><FaFacebookF /></a>
         <a href="#" aria-label="Twitter" className="hover:text-[#1DA1F2]"><FaTwitter /></a>
         <a href="#" aria-label="LinkedIn" className="hover:text-[#0077B5]"><FaLinkedinIn /></a>
         <a href="#" aria-label="Instagram" className="hover:text-[#C13584]"><FaInstagram /></a>
@@ -90,6 +85,7 @@ const settings = {
 
   </div>
 </section>
+
 
 
         {/* My Story Section (Below Carousel) */}
