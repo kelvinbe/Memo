@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="bg-[#F8E7D5] text-black px-6 md:px-10 py-16 md:py-20">
+    <footer className="bg-black text-white px-6 md:px-10 py-16 md:py-20">
       
       <div className="grid gap-10 md:grid-cols-3 items-start">
         
@@ -20,7 +20,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mt-12 flex text-black flex-col md:flex-row gap-4 md:gap-0 justify-between text-xs opacity-70">
+      <div className="mt-12 flex text-white flex-col md:flex-row gap-4 md:gap-0 justify-between text-xs opacity-70">
         <p>© 2026 by MEMO SOME.</p>
         <p>Made with ❤️ by Beno</p>
       </div>

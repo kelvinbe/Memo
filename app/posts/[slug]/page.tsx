@@ -80,7 +80,7 @@ export default async function PostPage({ params }: Props) {
     <>
     <Navbar />
     <article className="bg-white max-w-4xl mx-auto px-6 py-16">
-      <h1 className="font-serif text-4xl md:text-5xl mb-8">
+      <h1 className="font-heading text-4xl md:text-5xl mb-8">
         {post.title}
       </h1>
 
