@@ -22,7 +22,7 @@ const settings = {
   slidesToScroll: 1,
   autoplay: true,
   autoplaySpeed: 3000,
-  arrows: true,
+  arrows: false,
   responsive: [
     {
       breakpoint: 768,
@@ -115,7 +115,7 @@ const settings = {
         <section className="py-16 px-6 md:py-20 md:px-16">
           <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
             <div className="space-y-4 text-center md:text-left">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif text-[#2C1F2B]">Contact</h2>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-heading text-[#2C1F2B]">Contact</h2>
               <p className="text-gray-700 text-base sm:text-lg md:text-xl leading-relaxed">
                 I'm always looking for new and exciting opportunities. <br />
                 Let's connect.

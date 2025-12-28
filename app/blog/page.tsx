@@ -39,7 +39,7 @@ export default async function BlogPage() {
       <Navbar />
 
       <section className="bg-white px-6 md:px-12 py-20">
-        <h1 className="font-serif text-4xl md:text-5xl mb-16 text-[#3B2F2F]">
+        <h1 className="font-heading text-4xl md:text-5xl mb-16 text-[#3B2F2F]">
           All Posts
         </h1>
 
