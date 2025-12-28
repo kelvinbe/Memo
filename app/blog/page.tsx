@@ -38,7 +38,7 @@ export default async function BlogPage() {
     <>
       <Navbar />
 
-      <section className="bg-[#FBF6ED] px-6 md:px-12 py-20">
+      <section className="bg-white px-6 md:px-12 py-20">
         <h1 className="font-serif text-4xl md:text-5xl mb-16 text-[#3B2F2F]">
           All Posts
         </h1>
@@ -48,7 +48,7 @@ export default async function BlogPage() {
             <Link
               key={post._id}
               href={`/posts/${post.slug.current}`}
-              className="group block border border-[#E5DED5] bg-[#FBF6ED] hover:bg-[#F6F0E7] transition"
+              className="group block border border-[#E5DED5] bg-white hover:bg-[#F6F0E7] transition"
             >
               <article className="grid md:grid-cols-[420px_1fr] gap-8 p-6 md:p-8">
                 

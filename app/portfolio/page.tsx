@@ -33,7 +33,7 @@ export default function PortfolioPage() {
     <>
               <Navbar />
     
-    <section className="bg-[#FBF6ED] px-6 md:px-12 py-24">
+    <section className="bg-white px-6 md:px-12 py-24">
       {/* Header */}
       <div className="max-w-3xl mx-auto text-center mb-20">
         <h1 className="font-serif text-4xl md:text-5xl text-[#3B2F2F] mb-6">
