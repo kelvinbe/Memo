@@ -49,27 +49,24 @@ export default async function MoreRelatedTopics() {
   );
 
   return (
-    <section className="relative overflow-hidden px-6 md:px-10 py-16 md:py-20 bg-[#f5f1ea]">
+    <section className="relative overflow-hidden px-6 md:px-10 py-16 md:py-20 bg-white">
       {/* ✨ Background texture (stars) */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-30
-        [background-image:radial-gradient(#cbb9a5_1px,transparent_1px)]
+        className="pointer-events-none absolute
         [background-size:140px_140px]"
       />
 
       {/* ✨ Soft paper gradient */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0
-        bg-gradient-to-b from-[#f6f2eb] to-[#efe9df]"
+        className="pointer-events-none absolute"
       />
 
       {/* ✨ Sunburst (top-right) */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rounded-full opacity-30
-        [background:repeating-conic-gradient(rgba(200,160,120,.35)_0deg_2deg,transparent_2deg_12deg)]"
+        className="pointer-events-none absolute -top-20 -right-20 h-64 w-64 rounded-full opacity-30"
       />
 
       {/* Content */}
