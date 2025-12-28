@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function PolicyGirl() {
   return (
-    <section className="relative min-h-[85vh] flex flex-col md:flex-row bg-[#0F2A1D] overflow-hidden">
+    <section className="relative min-h-[85vh] flex flex-col md:flex-row bg-[#404241] overflow-hidden">
       
       {/* Image (Top on mobile, Left on desktop) */}
       <div className="relative w-full md:w-1/2 h-[60vh] md:h-auto">

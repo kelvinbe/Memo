@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 const images = [
   { src: "/hero.PNG", center: false },
   { src: "/dog.JPG", center: true },
-  { src: "/ha.JPG", center: true },
+  { src: "/ha.JPG", center: false },
 ];
 
 export default function Hero() {
@@ -34,7 +34,7 @@ export default function Hero() {
           priority={index === 0}
           className={`absolute transition-opacity duration-1000 ease-in-out
             ${index === current ? "opacity-100" : "opacity-0"}
-            ${img.center ? "object-cover object-center" : "object-cover"}
+            ${img.center ? "object-cover object-center object-top" : "object-cover"}
           `}
         />
       ))}
