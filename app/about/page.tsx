@@ -92,6 +92,21 @@ const settings = {
         <section className="py-20 px-4 md:px-16">
           <div className="max-w-6xl mx-auto space-y-6">
             <h2 className="text-4xl md:text-5xl font-heading text-[#2C1F2B]">My Story</h2>
+            {/* Photo Section (Below My Story) */}
+<section className="py-16 px-4 md:px-16">
+  <div className="max-w-6xl mx-auto">
+    <div className="relative w-full h-[400px] sm:h-[400px] md:h-[500px]">
+      <Image
+        src="/baby.jpg" // replace with your image
+        alt="My journey in conservation"
+        fill
+        className="object-cover object-top md:object-center lg:object-[137%_40%] rounded-xl"
+        sizes="(max-width: 768px) 100vw, 80vw"
+      />
+    </div>
+  </div>
+</section>
+
             <p className="text-gray-700 text-lg md:text-xl leading-relaxed">
               I grew up surrounded by wildlife, the lush landscapes of Laikipia County, Kenya, and had far too many pets. 
               To me, that wasn’t unusual; it was just how a household was supposed to be. At 17, I adopted a cheetah from the Nairobi Orphanage and volunteered there, caring for him and other animals. Looking back, it’s no surprise I ended up in conservation, I’ve basically been managing a miniature ecosystem since I was two.
