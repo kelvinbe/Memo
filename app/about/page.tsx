@@ -89,11 +89,11 @@ const settings = {
 
 
         {/* My Story Section (Below Carousel) */}
-        <section className="py-20 px-4 md:px-16">
+        <section className="py-10 px-4 md:px-16">
           <div className="max-w-6xl mx-auto space-y-6">
             <h2 className="text-4xl md:text-5xl font-heading text-[#2C1F2B]">My Story</h2>
             {/* Photo Section (Below My Story) */}
-<section className="py-16 px-4 md:px-16">
+<section className="py-10 px-4 md:px-16">
   <div className="max-w-6xl mx-auto">
     <div className="relative w-full h-[400px] sm:h-[400px] md:h-[500px]">
       <Image

@@ -6,6 +6,7 @@ import { PortableText } from '@portabletext/react';
 import { notFound } from 'next/navigation';
 import { urlFor } from '@/sanity/lib/image';
 import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 type Props = {
   params: Promise<{
@@ -96,10 +97,13 @@ export default async function PostPage({ params }: Props) {
   />
 )}
 
-      <div className="prose prose-lg max-w-none text-gray-800">
+      <div className="prose prose-lg max-w-none mb-20 text-gray-800">
         <PortableText value={post.body ?? []} />
       </div>
     </article>
+
+
+    <Footer />
     </>
   );
 }

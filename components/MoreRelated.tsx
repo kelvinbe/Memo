@@ -5,6 +5,9 @@ import Link from "next/link";
 import { PortableTextBlock } from "@portabletext/types";
 import { urlFor } from "@/sanity/lib/image";
 
+export const revalidate = 60; // Revalidate every 60 seconds
+
+
 interface Category {
   _id: string;
   title: string;
