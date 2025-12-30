@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 const images = [
   { src: "/hero.PNG", center: false },
-  { src: "/dog.JPG", center: true },
+  { src: "/port1.jpg", center: true },
   { src: "/ha.JPG", center: false },
 ];
 
