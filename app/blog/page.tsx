@@ -7,6 +7,9 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { urlFor } from '@/sanity/lib/image';
 
+
+export const revalidate = 60; // Revalidate every 60 seconds
+
 interface Post {
   _id: string;
   title: string;
@@ -31,6 +34,8 @@ const query = groq`
   }
 `;
 
+
+
 export default async function BlogPage() {
   const posts: Post[] = await client.fetch(query);
 
@@ -38,8 +43,8 @@ export default async function BlogPage() {
     <>
       <Navbar />
 
-      <section className="bg-white px-6 md:px-12 py-20">
-        <h1 className="font-heading text-4xl md:text-5xl mb-16 text-[#3B2F2F]">
+      <section className="bg-white px-6 md:px-12 py-10">
+        <h1 className="font-heading text-4xl md:text-5xl mb-10 text-[#3B2F2F]">
           All Posts
         </h1>
 
