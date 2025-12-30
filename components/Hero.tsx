@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 
 const images = [
   { src: "/hero.PNG", center: false },
-  { src: "/dog.JPG", center: true },
+  { src: "/port1.jpg", center: true },
   { src: "/ha.JPG", center: false },
 ];
 
@@ -40,7 +40,7 @@ export default function Hero() {
       ))}
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/50 z-10" />
+      <div className="absolute  bg-black/50 z-10" />
 
       {/* Text */}
       <div className="relative z-20 max-w-3xl text-center text-white">
