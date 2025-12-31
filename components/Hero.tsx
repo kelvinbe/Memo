@@ -4,18 +4,35 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const images = [
+/* Desktop images */
+const desktopImages = [
   {
     src: "/hero.PNG",
     objectClass: "object-cover object-center",
   },
   {
-    src: "/gir.jpg",
-    objectClass: "object-top object-cover  object-[137%_80%]",
+    src: "/binocu.jpeg",
+    objectClass: "object-cover object-center",
   },
   {
+    src: "/ha.JPG",
+    objectClass: "object-cover object-center",
+  },
+];
+
+/* Mobile images */
+const mobileImages = [
+  {
     src: "/for.jpg",
-    objectClass: "object-cover  object-[57%_75%]",
+    objectClass: "object-cover object-[57%_75%]",
+  },
+  {
+    src: "/gir.jpg",
+    objectClass: "object-cover object-[87%_80%]",
+  },
+  {
+    src: "/dog.JPG",
+    objectClass: "object-cover object-center",
   },
 ];
 
@@ -24,31 +41,50 @@ export default function Hero() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
+      setCurrent((prev) => (prev + 1) % desktopImages.length);
     }, 5000);
 
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center px-6 overflow-hidden">
-      
-      {/* Background carousel */}
-      {images.map((img, index) => (
-        <Image
-          key={img.src}
-          src={img.src}
-          alt="Background"
-          fill
-          priority={index === 0}
-          className={`absolute transition-opacity duration-1000 ease-in-out
-            ${index === current ? "opacity-100" : "opacity-0"}
-            ${img.objectClass}
-          `}
-          sizes="(max-width: 768px) 100vw, 80vw"
+    <section className="relative min-h-[100vh] md:min-h-[110vh] flex items-center justify-center px-6 overflow-hidden">
 
-        />
-      ))}
+      {/* ================= MOBILE BACKGROUND ================= */}
+      <div className="absolute inset-0 md:hidden">
+        {mobileImages.map((img, index) => (
+          <Image
+            key={img.src}
+            src={img.src}
+            alt="Mobile background"
+            fill
+            priority={index === 0}
+            className={`
+              absolute transition-opacity duration-1000 ease-in-out
+              ${index === current ? "opacity-100" : "opacity-0"}
+              ${img.objectClass}
+            `}
+          />
+        ))}
+      </div>
+
+      {/* ================= DESKTOP BACKGROUND ================= */}
+      <div className="absolute inset-0 hidden md:block">
+        {desktopImages.map((img, index) => (
+          <Image
+            key={img.src}
+            src={img.src}
+            alt="Desktop background"
+            fill
+            priority={index === 0}
+            className={`
+              absolute transition-opacity duration-1000 ease-in-out
+              ${index === current ? "opacity-100" : "opacity-0"}
+              ${img.objectClass}
+            `}
+          />
+        ))}
+      </div>
 
       {/* Overlay */}
       <div className="absolute inset-0 bg-black/50 z-10" />
