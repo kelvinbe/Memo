@@ -5,9 +5,18 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const images = [
-  { src: "/hero.PNG", center: false },
-  { src: "/port1.jpg", center: true },
-  { src: "/ha.JPG", center: false },
+  {
+    src: "/hero.PNG",
+    objectClass: "object-cover object-center",
+  },
+  {
+    src: "/gir.jpg",
+    objectClass: "object-top object-cover  object-[137%_80%]",
+  },
+  {
+    src: "/for.jpg",
+    objectClass: "object-cover  object-[57%_75%]",
+  },
 ];
 
 export default function Hero() {
@@ -34,8 +43,10 @@ export default function Hero() {
           priority={index === 0}
           className={`absolute transition-opacity duration-1000 ease-in-out
             ${index === current ? "opacity-100" : "opacity-0"}
-            ${img.center ? "object-cover object-center object-top" : "object-cover"}
+            ${img.objectClass}
           `}
+          sizes="(max-width: 768px) 100vw, 80vw"
+
         />
       ))}
 

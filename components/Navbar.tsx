@@ -14,8 +14,17 @@ export default function Navbar() {
     }`;
 
   return (
-    <nav className="flex text-black flex-col md:flex-row items-center justify-between px-6 md:px-10 py-4 md:py-6 gap-4">
-      
+    <nav
+      className="
+        sticky top-0 z-50
+        bg-white/90 backdrop-blur
+        flex flex-col md:flex-row
+        items-center justify-between
+        px-6 md:px-10
+        py-4 md:py-6
+        gap-4
+      "
+    >
       <Link href="/" className="font-heading text-xl tracking-wide">
         MEMO SOME
       </Link>
