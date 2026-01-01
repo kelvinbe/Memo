@@ -13,18 +13,18 @@ interface PortfolioItem {
 const portfolioItems: PortfolioItem[] = [
   {
     id: '1',
-    title: 'Community Conservation',
-    image: '/port1.jpg',
+    title: 'Nairobi National Park Policy Roundtable',
+    image: '/rihn.jpeg',
   },
   {
     id: '2',
-    title: 'Women Empowerment',
-    image: '/port2.JPG',
+    title: 'Wildlife Corridors Report',
+    image: '/elep.jpg',
   },
   {
     id: '3',
-    title: 'Youth Leadership',
-    image: '/port3.jpg',
+    title: 'Conservation Foresight Discussions',
+    image: '/buffa.jpeg',
   },
 ];
 
@@ -40,20 +40,20 @@ export default function PortfolioPage() {
           My Portfolio
         </h1>
         <p className="text-base md:text-lg text-[#5A4A42] leading-relaxed">
-          Here’s a glimpse into the work I care about most. Take a look around
-          and see what I’ve been up to.
+          Here’s a glimpse of my current work
+
         </p>
       </div>
 
       {/* Portfolio Grid */}
-      <div className="max-w-7xl mx-auto grid gap-10 md:grid-cols-3">
+      <div className="max-w-7xl mx-auto  grid gap-10 md:grid-cols-3">
         {portfolioItems.map((item) => (
           <Link
             key={item.id}
             href={item.href || '#'}
             className="group block"
           >
-            <div className="relative w-full h-[420px] overflow-hidden bg-[#EDE6DC]">
+            <div className="relative w-full rounded-md shadow-lg h-[420px] overflow-hidden bg-[#EDE6DC]">
               <Image
                 src={item.image}
                 alt={item.title}
