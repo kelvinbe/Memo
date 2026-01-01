@@ -1,28 +1,48 @@
 export default function Footer() {
   return (
-    <footer className="bg-black text-white px-6 md:px-10 py-16 md:py-20">
+    <footer className="bg-black text-white px-6 md:px-16 py-16 md:py-20">
       
-      <div className="grid gap-10 md:grid-cols-3 items-start">
+      {/* Top Section */}
+      <div className="max-w-6xl mx-auto grid gap-10 md:grid-cols-3 items-start">
         
-        <h2 className="text-3xl md:text-4xl">
-          Stay Connected with Memo
-        </h2>
-
-        <div className="text-sm space-y-2">
-          <p>Privacy Policy</p>
-          <p>Accessibility Statement</p>
+        {/* Brand / Message */}
+        <div className="space-y-4">
+          <h2 className="text-3xl md:text-4xl font-heading">
+            Stay Connected
+          </h2>
+          <p className="text-sm text-white/80 leading-relaxed">
+            Stories, policy insights, and conservation work from the field
+            bridging people, wildlife, and purpose.
+          </p>
         </div>
 
-        <div className="text-sm space-y-2">
+        {/* Contact */}
+        <div className="space-y-2 text-sm text-white/80">
+          <p className="font-semibold text-white">Contact</p>
           <p>Kenya</p>
-          <p>info@mysite.com</p>
-          <p>123-456-7890</p>
+          <a
+            href="mailto:memosomeh@gmail.com"
+            className="hover:text-sky-400 transition-colors"
+          >
+            memosomeh@gmail.com
+          </a>
+        </div>
+
+        {/* Social / Links */}
+        <div className="space-y-2 text-sm text-white/80">
+          <p className="font-semibold text-white">Connect</p>
+          <p>Twitter</p>
+          <p>LinkedIn</p>
+          <p>Instagram</p>
         </div>
       </div>
 
-      <div className="mt-12 flex text-white flex-col md:flex-row gap-4 md:gap-0 justify-between text-xs opacity-70">
-        <p>© 2026 by MEMO SOME.</p>
-        <p>Made with ❤️ by Beno</p>
+      {/* Bottom Section */}
+      <div className="max-w-6xl mx-auto mt-16 flex flex-col md:flex-row gap-4 md:gap-0 justify-between text-xs text-white/60">
+        <p>© {new Date().getFullYear()} Memo Some. All rights reserved.</p>
+        <p>
+          Made with <span className="text-red-400">♥</span> by Beno
+        </p>
       </div>
     </footer>
   );

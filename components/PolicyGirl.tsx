@@ -20,12 +20,13 @@ export default function PolicyGirl() {
   };
 
   return (
-    <section className="relative min-h-[85vh] flex flex-col md:flex-row bg-[#404241] overflow-hidden">
+    <section className="relative flex flex-col md:flex-row bg-[#404241] overflow-hidden">
       
-      <div className="relative w-full md:w-1/2 h-[100vh] md:h-auto">
+      {/* Slider Section */}
+      <div className="relative w-full md:w-1/2 h-[500px] md:h-[100vh]">
         <Slider {...settings} className="h-full">
           {images.map((src, idx) => (
-            <div key={idx} className="relative h-[100vh] md:h-[100vh]">
+            <div key={idx} className="relative h-[500px] md:h-[100vh]">
               <Image
                 src={src}
                 alt={`Policy Image ${idx + 1}`}
@@ -41,19 +42,11 @@ export default function PolicyGirl() {
         </Slider>
       </div>
 
-      <div className="w-full md:w-1/2 flex items-center justify-center px-6 md:px-12 py-12 md:py-0">
+      {/* Text Section */}
+      <div className="w-full md:w-1/2 flex items-center justify-center px-6 md:px-12 py-6 md:py-0 h-[400px] md:h-auto">
         <div className="max-w-lg text-white text-center md:text-left">
-          
-          <span className="font-heading text-xs md:text-sm tracking-widest mb-4 block uppercase">
-            Wildlife Policy & Conservation
-          </span>
-
-          <h1 className="font-heading text-4xl md:text-6xl tracking-wide mb-6">
-            POLICY MAKER
-          </h1>
-
-          <p className="text-sm md:text-base leading-7 text-white/90">
-            “Today’s environmental challenges begin where education and policy fall short.” -- Memo Some
+          <p className="text-sm font-heading text-4xl md:text-3xl text-white/90">
+            “Today’s environmental challenges begin where education and policy fall short.” Memo Some
           </p>
         </div>
       </div>
