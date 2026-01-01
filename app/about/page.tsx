@@ -59,7 +59,7 @@ export default function AboutPage() {
 
               <p className="text-gray-700 text-lg md:text-xl leading-relaxed">
                 I firmly believe conservation is beyond wildlife protection. It’s about people, justice, and reimagining how we live with the wild.
-                
+
                 This space holds my thoughts, field notes, and big dreams for Kenya and beyond.
               </p>
 
@@ -90,7 +90,7 @@ export default function AboutPage() {
           src="/baby.jpg"
           alt="My journey in conservation"
           fill
-          className="object-cover object-top md:object-center"
+          className="object-cover md:object-center"
           sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
