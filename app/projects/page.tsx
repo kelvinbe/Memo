@@ -37,7 +37,7 @@ export default function PortfolioPage() {
       {/* Header */}
       <div className="max-w-3xl mx-auto text-center mb-10">
         <h1 className="font-heading text-4xl md:text-5xl text-[#3B2F2F] mb-6">
-          My Portfolio
+          Recent Projects
         </h1>
         <p className="text-base md:text-lg text-[#5A4A42] leading-relaxed">
           Here’s a glimpse of my current work

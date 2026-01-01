@@ -50,6 +50,11 @@ export default function Navbar() {
             Projects
           </Link>
         </li>
+           <li>
+          <Link href="/collaborate" className={linkClass("/collaborate")}>
+            Collaborate
+          </Link>
+        </li>
       </ul>
     </nav>
   );
