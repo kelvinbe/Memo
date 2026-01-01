@@ -46,8 +46,8 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <Link href="/portfolio" className={linkClass("/portfolio")}>
-            Portfolio
+          <Link href="/projects" className={linkClass("/projects")}>
+            Projects
           </Link>
         </li>
       </ul>

@@ -1,21 +1,46 @@
+"use client";
+
 import Image from "next/image";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 export default function PolicyGirl() {
+  const images = ["/vb.jpg", "/for.jpg", "/parlia.jpg"]; // slider images
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+  };
+
   return (
     <section className="relative min-h-[85vh] flex flex-col md:flex-row bg-[#404241] overflow-hidden">
       
-      {/* Image (Top on mobile, Left on desktop) */}
-      <div className="relative w-full md:w-1/2 h-[60vh] md:h-auto">
-        <Image
-          src="/vb.jpg"
-          alt="Portrait"
-          fill
-          priority
-          className="object-cover object-top"
-        />
+      <div className="relative w-full md:w-1/2 h-[100vh] md:h-auto">
+        <Slider {...settings} className="h-full">
+          {images.map((src, idx) => (
+            <div key={idx} className="relative h-[100vh] md:h-[100vh]">
+              <Image
+                src={src}
+                alt={`Policy Image ${idx + 1}`}
+                fill
+                priority={idx === 0}
+                className={`object-cover ${
+                  idx === 0 ? "object-top" : "object-center"
+                }`}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+          ))}
+        </Slider>
       </div>
 
-      {/* Text Content (Bottom on mobile, Right on desktop) */}
       <div className="w-full md:w-1/2 flex items-center justify-center px-6 md:px-12 py-12 md:py-0">
         <div className="max-w-lg text-white text-center md:text-left">
           
@@ -28,10 +53,7 @@ export default function PolicyGirl() {
           </h1>
 
           <p className="text-sm md:text-base leading-7 text-white/90">
-            “You cannot protect the environment unless you empower people, 
-            you inform them, and you help them understand that these resources 
-            are their own, that they must
-            protect them.”
+            “Today’s environmental challenges begin where education and policy fall short.” -- Memo Some
           </p>
         </div>
       </div>
