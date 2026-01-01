@@ -23,7 +23,7 @@ const desktopImages = [
 /* Mobile images */
 const mobileImages = [
   {
-    src: "/for.jpg",
+    src: "/hero.PNG",
     objectClass: "object-cover object-[57%_75%]",
   },
   {
@@ -39,13 +39,13 @@ const mobileImages = [
 export default function Hero() {
   const [current, setCurrent] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % desktopImages.length);
-    }, 5000);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrent((prev) => (prev + 1) % desktopImages.length);
+  //   }, 5000);
 
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   return (
     <section className="relative min-h-[100vh] md:min-h-[110vh] flex items-center justify-center px-6 overflow-hidden">
@@ -92,12 +92,11 @@ export default function Hero() {
       {/* Text */}
       <div className="relative z-20 max-w-3xl text-center text-white">
         <h1 className="font-heading text-4xl md:text-6xl mb-6">
-          WELCOME
+          Hey there!
         </h1>
 
         <p className="text-md md:text-lg leading-7 mb-8">
-          I’m Memo Some, a conservationist, policy advocate,
-          and an occasional pet hoarder (it’s under control, I promise).
+          I’m Memo Some, a Wildlife & Environmental Policy Specialist from Kenya.
           <br /><br />
           I’m so glad you’re here — welcome to my wild little corner of the internet!
         </p>
