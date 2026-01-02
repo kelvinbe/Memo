@@ -23,7 +23,7 @@ const desktopImages = [
 /* Mobile images */
 const mobileImages = [
   {
-    src: "/hero.PNG",
+    src: "/for.jpg",
     objectClass: "object-cover object-[57%_75%]",
   },
   {
