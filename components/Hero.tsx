@@ -98,7 +98,7 @@ export default function Hero() {
         <p className="text-md md:text-lg leading-7 mb-8">
           I’m Memo Some, a Wildlife & Environmental Policy Specialist from Kenya.
           <br /><br />
-          I’m so glad you’re here! Welcome to my wild little corner of the internet!
+          I’m so glad you’re here! Welcome to my little wild corner of the internet!
         </p>
 
         <Link
