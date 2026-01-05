@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
-export default function CollaboratePage() {
+export default function ContactPage() {
   return (
     <>
       <Navbar />
