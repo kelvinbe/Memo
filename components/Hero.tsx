@@ -95,15 +95,15 @@ export default function Hero() {
           Hey there!
         </h1>
 
-        <p className="text-md md:text-lg leading-7 mb-8">
+        <p className="text-md md:text-lg leading-7 mb-[3rem]">
           I’m Memo Some, a Wildlife & Environmental Policy Specialist from Kenya.
-          <br /><br />
+          <br />
           I’m so glad you’re here! Welcome to my little wild corner of the internet!
         </p>
 
         <Link
           href="/about"
-          className="inline-block bg-white text-black px-6 py-3 text-xs tracking-widest uppercase hover:opacity-90 transition"
+          className="inline-block bg-white text-black px-6 py-3 text-xs ml-[4rem] tracking-widest uppercase hover:opacity-90 transition"
         >
           Learn more
         </Link>
