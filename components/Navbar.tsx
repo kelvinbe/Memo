@@ -51,8 +51,8 @@ export default function Navbar() {
           </Link>
         </li>
            <li>
-          <Link href="/collaborate" className={linkClass("/collaborate")}>
-            Collaborate
+          <Link href="/contact" className={linkClass("/contact")}>
+            Contact
           </Link>
         </li>
       </ul>
