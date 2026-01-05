@@ -10,7 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 export default function AboutPage() {
-  const images = ["/memo.JPG", "/photo.jpeg", "/gir.jpg"];
+  const images = ["/photo.jpeg"];
 
   const settings = {
     dots: true,
