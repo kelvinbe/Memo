@@ -69,7 +69,7 @@ export default function Hero() {
       </div>
 
       {/* ================= DESKTOP BACKGROUND ================= */}
-      <div className="absolute inset-0 hidden md:block">
+      <div className="absolute  inset-0 hidden md:block">
         {desktopImages.map((img, index) => (
           <Image
             key={img.src}
@@ -90,7 +90,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/50 z-10" />
 
       {/* Text */}
-      <div className="relative z-20 max-w-3xl text-center text-white">
+      <div className="relative mt-[-98px] z-20 max-w-3xl text-center text-white">
         <h1 className="font-heading text-4xl md:text-6xl mb-6">
           Hey there!
         </h1>
@@ -103,7 +103,7 @@ export default function Hero() {
 
         <Link
           href="/about"
-          className="inline-block bg-white text-black px-6 py-3 text-xs ml-[4rem] tracking-widest uppercase hover:opacity-90 transition"
+          className="inline-block bg-white text-black px-6 py-3 text-xs  tracking-widest uppercase hover:opacity-90 transition"
         >
           Learn more
         </Link>
