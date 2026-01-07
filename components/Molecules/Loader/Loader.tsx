@@ -1,17 +1,16 @@
-// app/loading.tsx
-export default function Loading() {
+export default function PageLoader() {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#FBF6EE]">
-      <div className="flex flex-col items-center gap-4">
-        
-        {/* Spinner */}
-        <div className="h-10 w-10 animate-spin rounded-full border-2 border-[#4B2E2E] border-t-transparent" />
-
-        {/* Text */}
-        <p className="font-serif text-[#4B2E2E] text-sm tracking-wide">
-          Loading...
-        </p>
+    <div className="absolute  flex flex-col items-center justify-center bg-white/90 backdrop-blur-sm">
+      {/* Circle GIF */}
+      <div className="relative h-32 w-32 overflow-hidden rounded-full border-4 border-[#3B2F2F] shadow-lg">
+        <img
+          src="/cat.gif"
+          alt="Loading..."
+          className="h-full w-full object-cover"
+        />
       </div>
+
+    
     </div>
   );
 }
