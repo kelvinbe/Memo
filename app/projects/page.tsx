@@ -104,9 +104,10 @@ export default async function ProjectsPage() {
                   )}
                 </div>
 
-                <h3 className="mt-4 font-serif text-lg text-[#3B2F2F]">
+                <h3 className="mt-4 text-lg text-[#3B2F2F]">
                   {project.title}
                 </h3>
+                <p className="text-sm text-gray-500 mt-2">Read more →</p>
               </Link>
             ))}
           </div>
