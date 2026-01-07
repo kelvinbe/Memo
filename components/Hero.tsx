@@ -90,7 +90,7 @@ export default function Hero() {
       <div className="absolute inset-0 bg-black/50 z-10" />
 
       {/* Text */}
-      <div className="relative mt-[-98px] z-20 max-w-3xl text-center text-white">
+      <div className="relative mt-[-162px] z-20 max-w-3xl text-center text-white">
         <h1 className="font-heading text-4xl md:text-6xl mb-6">
           Hey there!
         </h1>
