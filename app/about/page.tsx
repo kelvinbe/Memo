@@ -3,11 +3,13 @@
 import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import { FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import { TbBrandLinktree } from "react-icons/tb";
+
 
 export default function AboutPage() {
   const images = ["/photo.jpeg"];
@@ -63,13 +65,38 @@ export default function AboutPage() {
                 This space holds my thoughts, field notes, and big dreams for Kenya and beyond.
               </p>
 
-              <div className="flex justify-center md:justify-start space-x-4 text-xl">
-               <a href="http://" className="hover:text-sky-400"> <FaTwitter /></a>
-               <a href="http://" className="hover:text-sky-400"> <FaLinkedinIn /></a>
-               <a href="http://" className="hover:text-sky-400"> <FaInstagram /></a>
+             <div className="flex justify-center md:justify-start space-x-4 text-xl">
+  <a
+    href="https://linktr.ee/MemoSomeh?fbclid=PAAaZKSfRhV_tPEyfjqRa02hoRqPY-bXF9Yu5k_ds_jJaaF3E4GewOO9403Yo"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-sky-400"
+    aria-label="Linktree"
+  >
+    <TbBrandLinktree />
+  </a>
 
-                
-              </div>
+  <a
+    href="https://www.linkedin.com/in/memosomeh/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-sky-400"
+    aria-label="LinkedIn"
+  >
+    <FaLinkedinIn />
+  </a>
+
+  <a
+    href="https://www.instagram.com/memosomeh/?hl=en-gb"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-sky-400"
+    aria-label="Instagram"
+  >
+    <FaInstagram />
+  </a>
+</div>
+
             </div>
           </div>
         </section>
@@ -106,7 +133,7 @@ export default function AboutPage() {
         </p>
 
         <p className="text-gray-700 text-lg md:text-xl leading-relaxed">
-          That wild start led me here. I founded the WildNow Foundation, successfully petitioned Parliament on
+          That wild start led me here.In 2020, I founded the WildNow Foundation, successfully petitioned Parliament on
           behalf of Nairobi National Park, and was named the Face of African Women in Conservation 2022.
           I work closely with local communities, bringing their knowledge into wildlife policy and demonstrating
           how indigenous conservation practices can support home-grown economies.

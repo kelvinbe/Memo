@@ -11,8 +11,7 @@ export default function Footer() {
             Stay Connected
           </h2>
           <p className="text-sm text-white/80 leading-relaxed">
-            Stories, policy insights, and conservation work from the field
-            bridging people, wildlife, and purpose.
+           Better habitats, better lives; one story at a time.
           </p>
         </div>
 
@@ -31,9 +30,28 @@ export default function Footer() {
         {/* Social / Links */}
         <div className="space-y-2 text-sm text-white/80">
           <p className="font-semibold text-white">Connect</p>
-          <p>Twitter</p>
-          <p>LinkedIn</p>
-          <p>Instagram</p>
+          <div>
+       <a
+            href="https://www.linkedin.com/in/memosomeh/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-sky-400 transition-colors"
+          >
+            LinkedIn
+          </a>
+          </div>
+       
+          <div>
+ <a
+            href="https://www.instagram.com/memosomeh/?hl=en-gb"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-sky-400 transition-colors"
+          >
+            Instagram
+          </a>
+          </div>
+         
         </div>
       </div>
 
