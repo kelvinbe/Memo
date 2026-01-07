@@ -1,14 +1,18 @@
-import { groq } from 'next-sanity';
-import { client } from '@/sanity/lib/client';
-import Image from 'next/image';
-import Link from 'next/link';
-import { PortableTextBlock } from '@portabletext/types';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import { urlFor } from '@/sanity/lib/image';
+import { groq } from "next-sanity";
+import { client } from "@/sanity/lib/client";
+import Image from "next/image";
+import Link from "next/link";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { urlFor } from "@/sanity/lib/image";
+import PageLoader from "../../components/Molecules/Loader/Loader";
 
+export const revalidate = 60;
 
-export const revalidate = 60; // Revalidate every 60 seconds
+interface Category {
+  _id: string;
+  title: string;
+}
 
 interface Post {
   _id: string;
@@ -16,9 +20,10 @@ interface Post {
   slug: { current: string };
   publishedAt: string;
   mainImage?: any;
-  body: PortableTextBlock[];
+  categories?: Category[];
 }
 
+// Fetch all posts
 const query = groq`
   *[
     _type == "post" &&
@@ -30,81 +35,90 @@ const query = groq`
     slug,
     publishedAt,
     mainImage,
-    body
+    categories[]->{_id, title}
   }
 `;
 
-
-
 export default async function BlogPage() {
   const posts: Post[] = await client.fetch(query);
+
+  // Filter out posts in the "Projects" category
+  const blogPosts = posts.filter(
+    (post) => !post.categories?.some((cat) => cat.title === "Projects")
+  );
+
+  const hasPosts = blogPosts.length > 0;
 
   return (
     <>
       <Navbar />
 
-      <section className="bg-white px-6 md:px-12 py-10">
-        <h1 className="font-heading text-4xl md:text-5xl mb-10 text-[#3B2F2F]">
-          All Posts
-        </h1>
+      {/* Empty state */}
+      {!hasPosts && (
+        <section className="relative min-h-[70vh] flex flex-col items-center justify-center text-center px-6">
+          <h1 className="font-heading text-4xl md:text-5xl mb-10 text-[#3B2F2F]">
+            All Posts
+          </h1>
+          <PageLoader />
+          <h1 className="font-heading text-2xl md:text-2xl text-[#3B2F2F] mt-48">
+            Coming Soon...
+          </h1>
+        </section>
+      )}
 
-        <div className="space-y-12">
-          {posts.map((post) => (
-            <Link
-              key={post._id}
-              href={`/posts/${post.slug.current}`}
-              className="group block border rounded-lg shadow-lg border-[#E5DED5] bg-white hover:bg-[#F6F0E7] transition"
-            >
-              <article className="grid md:grid-cols-[420px_1fr] gap-8 p-6 md:p-8">
-                
-                {/* Image */}
-                <div className="relative w-full h-[260px] md:h-[280px] overflow-hidden">
-                  {post.mainImage?.asset && (
-                    <Image
-                      src={urlFor(post.mainImage)
-                        .width(800)
-                        .height(500)
-                        .url()}
-                      alt={post.title}
-                      fill
-                      unoptimized
-                      className="object-cover"
-                    />
-                  )}
-                </div>
+      {/* Blog list */}
+      {hasPosts && (
+        <section className="bg-white px-6 md:px-12 py-10">
+          <h1 className="font-heading text-4xl md:text-5xl mb-10 text-[#3B2F2F]">
+            All Posts
+          </h1>
 
-                {/* Content */}
-                <div className="flex flex-col justify-between">
-                  <div>
-                    <p className="text-sm text-gray-500 mb-2">
-                      {new Date(post.publishedAt).toLocaleDateString(undefined, {
-                        month: 'short',
-                        day: 'numeric',
-                      })}{' '}
-                      · 5 min read
-                    </p>
-
-                    <h2 className="font-serif text-2xl md:text-3xl text-[#3B2F2F] mb-4 leading-snug group-hover:underline">
-                      {post.title}
-                    </h2>
-
-                    <p className="text-gray-700 max-w-xl">
-                      In a world where environmental challenges are becoming more
-                      pressing, the need for effective leadership in conservation
-                      is greater than…
-                    </p>
+          <div className="space-y-12">
+            {blogPosts.map((post) => (
+              <Link
+                key={post._id}
+                href={`/posts/${post.slug.current}`}
+                className="group block border rounded-lg shadow-lg border-[#E5DED5] bg-white hover:bg-[#F6F0E7] transition"
+              >
+                <article className="grid md:grid-cols-[420px_1fr] gap-8 p-6 md:p-8">
+                  <div className="relative w-full h-[260px] md:h-[280px] overflow-hidden">
+                    {post.mainImage?.asset && (
+                      <Image
+                        src={urlFor(post.mainImage).width(800).height(500).url()}
+                        alt={post.title}
+                        fill
+                        unoptimized
+                        className="object-cover"
+                      />
+                    )}
                   </div>
 
-                  <div className="mt-6 flex items-center justify-between text-sm text-gray-500">
-                    <span>Read more →</span>
-                    <span className="tracking-widest">•••</span>
+                  <div className="flex flex-col justify-between">
+                    <div>
+                      <p className="text-sm text-gray-500 mb-2">
+                        {new Date(post.publishedAt).toLocaleDateString(undefined, {
+                          month: "short",
+                          day: "numeric",
+                        })}
+                        {" "}· 5 min read
+                      </p>
+
+                      <h2 className="font-serif text-2xl md:text-3xl text-[#3B2F2F] mb-4 leading-snug group-hover:underline">
+                        {post.title}
+                      </h2>
+                    </div>
+
+                    <div className="mt-6 flex items-center justify-between text-sm text-gray-500">
+                      <span>Read more →</span>
+                      <span className="tracking-widest">•••</span>
+                    </div>
                   </div>
-                </div>
-              </article>
-            </Link>
-          ))}
-        </div>
-      </section>
+                </article>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
       <Footer />
     </>
