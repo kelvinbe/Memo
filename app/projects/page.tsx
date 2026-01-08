@@ -54,7 +54,11 @@ export default async function ProjectsPage() {
   // Filter only posts in the "Projects" category
   const projectPosts = posts.filter((post) =>
     post.categories?.some((cat) => cat.title === "Projects")
-  );
+  ).sort(
+    (a, b) =>
+      new Date(b.publishedAt).getTime() -
+      new Date(a.publishedAt).getTime()
+  )
 
   const hasProjects = projectPosts.length > 0;
 

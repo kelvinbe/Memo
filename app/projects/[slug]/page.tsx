@@ -70,7 +70,7 @@ export default async function ProjectPostPage({ params }: Props) {
   // Filter only posts in "Projects" category
   const projectPosts = posts.filter((post) =>
     post.categories?.some((cat) => cat.title === "Projects")
-  );
+  )
 
   // Find the project with the matching slug
   const post = projectPosts.find((p) => p.slug.current === slug);
@@ -96,15 +96,49 @@ export default async function ProjectPostPage({ params }: Props) {
           />
         )}
 
-        <div className="prose prose-lg max-w-none mb-20 text-gray-800
-  text-center
-  text-lg md:text-xl
-  leading-[34px]
-  prose-p:mb-6
-  prose-li:mb-2
-  break-words
-  overflow-wrap-anywhere
-  ">
+        <div     className="
+    prose
+    prose-neutral
+    prose-md
+    mx-auto
+    max-w-1xl
+    mb-24
+
+    text-justify
+    [hyphens:auto]
+
+    prose-p:text-gray-700
+    prose-p:mb-5
+    font-heading
+    prose-headings:font-heading
+    prose-headings:text-[#3B2F2F]
+
+    /* ✅ FORCE LIST BEHAVIOR */
+    [&_ul]:list-disc
+    [&_ul]:pl-6
+    [&_ul]:my-6
+
+    [&_ol]:list-decimal
+    [&_ol]:pl-6
+    [&_ol]:my-6
+
+    /* ✅ FIX SANITY LIST ITEMS */
+    [&_li]:pl-1
+    [&_li]:my-2
+    [&_li>p]:m-0   /* 👈 THIS IS THE KEY FIX */
+    text-gray-700 
+    text-lg 
+    md:text-xl
+    [&_li::marker]:text-gray-400
+    leading-[32px]
+    prose-a:break-all
+    prose-code:break-all
+    prose-pre:overflow-x-auto
+    overflow-hidden
+    [overflow-wrap:anywhere]
+    [hyphens:auto]
+  "
+>
           <PortableText value={post.body ?? []} />
         </div>
       </article>
