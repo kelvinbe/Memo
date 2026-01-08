@@ -110,7 +110,7 @@ export default async function ProjectPostPage({ params }: Props) {
     prose-p:text-gray-700
     prose-p:mb-5
     prose-p:leading-relaxed
-    leading-[30px]
+    leading-[32px]
     font-heading
     prose-headings:font-heading
     prose-headings:text-[#3B2F2F]
