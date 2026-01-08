@@ -97,10 +97,14 @@ export default async function ProjectPostPage({ params }: Props) {
         )}
 
         <div className="prose prose-lg max-w-none mb-20 text-gray-800
-
-                leading-[34px]
-                prose-p:mb-6
-                prose-li:mb-2">
+  text-center
+  text-lg md:text-xl
+  leading-[34px]
+  prose-p:mb-6
+  prose-li:mb-2
+  break-words
+  overflow-wrap-anywhere
+  ">
           <PortableText value={post.body ?? []} />
         </div>
       </article>
