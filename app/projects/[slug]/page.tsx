@@ -8,7 +8,7 @@ import { urlFor } from "@/sanity/lib/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-export const revalidate = 60; // rebuilds the page every 60 seconds
+export const revalidate = 60; 
 
 
 

@@ -77,7 +77,7 @@ export default async function ProjectsPage() {
         {!hasProjects && (
           <div className="relative min-h-[320px] flex flex-col items-center justify-center text-center">
             <PageLoader />
-            <h2 className="font-heading text-2xl md:text-2xl text-[#3B2F2F] mt-10">
+            <h2 className="font-heading text-2xl text-[#3B2F2F] mt-10">
               Coming Soon...
             </h2>
           </div>
@@ -86,30 +86,60 @@ export default async function ProjectsPage() {
         {/* Portfolio Grid */}
         {hasProjects && (
           <div className="max-w-7xl mx-auto grid gap-10 md:grid-cols-3">
-            {projectPosts.map((project) => (
-              <Link
-                key={project._id}
-                href={`/projects/${project.slug.current}`}
-                className="group block"
-              >
-                <div className="relative w-full rounded-md shadow-lg h-[420px] overflow-hidden bg-[#EDE6DC]">
-                  {project.mainImage?.asset && (
-                    <Image
-                      src={urlFor(project.mainImage).url()}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
-                      unoptimized
-                    />
-                  )}
-                </div>
+            {projectPosts.map((project) => {
+              const isComingSoon = project.categories?.some(
+                (cat) => cat.title.toLowerCase() === "coming soon"
+              );
 
-                <h3 className="mt-4 text-lg text-[#3B2F2F]">
-                  {project.title}
-                </h3>
-                <p className="text-sm text-gray-500 mt-2">Read more →</p>
-              </Link>
-            ))}
+              const CardContent = (
+                <>
+                  <div className="relative w-full rounded-md shadow-lg h-[420px] overflow-hidden bg-[#EDE6DC]">
+                    {isComingSoon ? (
+                      <div className="absolute inset-0 bg-white flex items-center justify-center">
+                        <PageLoader />
+                        <span className="text-lg font-semibold text-black">
+                            Coming Soon..
+                          </span>
+                        
+                      </div>
+                    ) : project.mainImage?.asset ? (
+                      <Image
+                        src={urlFor(project.mainImage).url()}
+                        alt={project.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        unoptimized
+                      />
+                    ) : null}
+                  </div>
+
+                  <h3 className="mt-4 text-lg text-[#3B2F2F]">
+                    {project.title}
+                  </h3>
+
+                  <p className="text-sm text-gray-500 mt-2">
+                    {isComingSoon ? "Coming soon" : "Read more →"}
+                  </p>
+                </>
+              );
+
+              return isComingSoon ? (
+                <div
+                  key={project._id}
+                  className="group block cursor-not-allowed opacity-90"
+                >
+                  {CardContent}
+                </div>
+              ) : (
+                <Link
+                  key={project._id}
+                  href={`/projects/${project.slug.current}`}
+                  className="group block"
+                >
+                  {CardContent}
+                </Link>
+              );
+            })}
           </div>
         )}
       </section>
