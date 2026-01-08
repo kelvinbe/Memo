@@ -133,7 +133,7 @@ export default function AboutPage() {
         </p>
 
         <p className="text-gray-700 text-lg md:text-xl leading-relaxed">
-          That wild start led me here.In 2020, I founded the WildNow Foundation, successfully petitioned Parliament on
+          That wild start led me here. In 2020, I founded the WildNow Foundation, successfully petitioned Parliament on
           behalf of Nairobi National Park, and was named the Face of African Women in Conservation 2022.
           I work closely with local communities, bringing their knowledge into wildlife policy and demonstrating
           how indigenous conservation practices can support home-grown economies.
