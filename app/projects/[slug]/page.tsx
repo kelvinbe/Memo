@@ -96,47 +96,32 @@ export default async function ProjectPostPage({ params }: Props) {
           />
         )}
 
-        <div     className="
-    prose
-    prose-neutral
-    prose-md
-    mx-auto
-    max-w-1xl
-    mb-24
+        <div  className="
+    prose prose-neutral prose-lg
+    mx-auto max-w-5xl mb-24
 
     text-justify
+    [text-justify:inter-character]
+    [word-spacing:-0.08em]
     [hyphens:auto]
+    break-words
+    [overflow-wrap:anywhere]
 
     prose-p:text-gray-700
     prose-p:mb-5
+    prose-p:leading-relaxed
+    leading-[32px]
     font-heading
     prose-headings:font-heading
     prose-headings:text-[#3B2F2F]
 
-    /* ✅ FORCE LIST BEHAVIOR */
-    [&_ul]:list-disc
-    [&_ul]:pl-6
-    [&_ul]:my-6
-
-    [&_ol]:list-decimal
-    [&_ol]:pl-6
-    [&_ol]:my-6
-
-    /* ✅ FIX SANITY LIST ITEMS */
-    [&_li]:pl-1
-    [&_li]:my-2
-    [&_li>p]:m-0   /* 👈 THIS IS THE KEY FIX */
-    text-gray-700 
-    text-lg 
-    md:text-xl
+    [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:my-6
+    [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:my-6
+    [&_li]:pl-1 [&_li]:my-2
+    [&_li>p]:m-0
     [&_li::marker]:text-gray-400
-    leading-[32px]
-    prose-a:break-all
-    prose-code:break-all
-    prose-pre:overflow-x-auto
-    overflow-hidden
-    [overflow-wrap:anywhere]
-    [hyphens:auto]
+
+    text-gray-700
   "
 >
           <PortableText value={post.body ?? []} />
