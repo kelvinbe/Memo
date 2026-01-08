@@ -16,7 +16,7 @@ const lato = Lato({
 
 export const metadata: Metadata = {
   title: "Memo Some",
-  description: "Conservation Leadership and Wildlife Policy Blog",
+  description: "Wildlife & Environmental Policy Analyst Blog",
 };
 
 export default function RootLayout({
