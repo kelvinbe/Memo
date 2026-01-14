@@ -17,6 +17,29 @@ const lato = Lato({
 export const metadata: Metadata = {
   title: "Memo Some",
   description: "Wildlife & Environmental Policy Analyst Blog",
+
+    openGraph: {
+    title: "Memo Some",
+    description: "Wildlife & Environmental Policy Analyst Blog",
+    url: "https://www.memosome.com",
+    siteName: "Memo Some",
+    images: [
+      {
+        url: "/photo.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Memo Some – Wildlife & Environmental Policy Analyst Blog",
+      },
+    ],
+    type: "website",
+  },
+
+  twitter: {
+  card: "summary_large_image",
+  title: "Memo Some",
+  description: "Wildlife & Environmental Policy Analyst Blog",
+  images: ["https://www.memosome.com/photo.jpeg"],
+}
 };
 
 export default function RootLayout({
