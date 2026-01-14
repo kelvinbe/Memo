@@ -33,6 +33,13 @@ export const metadata: Metadata = {
     ],
     type: "website",
   },
+
+  twitter: {
+  card: "summary_large_image",
+  title: "Memo Some",
+  description: "Wildlife & Environmental Policy Analyst Blog",
+  images: ["https://www.memosome.com/photo.jpeg"],
+}
 };
 
 export default function RootLayout({
