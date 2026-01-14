@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     siteName: "Memo Some",
     images: [
       {
-        url: "/photo.jpeg",
+        url: "/te.jpeg",
         width: 1200,
         height: 630,
         alt: "Memo Some – Wildlife & Environmental Policy Analyst Blog",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   card: "summary_large_image",
   title: "Memo Some",
   description: "Wildlife & Environmental Policy Analyst Blog",
-  images: ["https://www.memosome.com/photo.jpeg"],
+  images: ["https://www.memosome.com/te.jpeg"],
 }
 };
 
