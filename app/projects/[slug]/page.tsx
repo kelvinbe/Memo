@@ -7,6 +7,8 @@ import { notFound } from "next/navigation";
 import { urlFor } from "@/sanity/lib/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { portableTextComponents } from "@/components/Organisms/PortableTextComponent";
+
 
 export const revalidate = 60; 
 
@@ -94,38 +96,52 @@ export default async function ProjectPostPage({ params }: Props) {
             className="w-full object-cover rounded-lg mb-10"
             priority
           />
-        )}
-
-        <div  className="
-    prose prose-neutral prose-lg
-    mx-auto max-w-5xl mb-24
-
-    text-justify
-    [text-justify:inter-character]
-    [word-spacing:-0.08em]
-    [hyphens:auto]
-    break-words
-    [overflow-wrap:anywhere]
-
-    prose-p:text-gray-700
-    prose-p:mb-5
-    prose-p:leading-relaxed
-    leading-[32px]
-    font-heading
-    prose-headings:font-heading
-    prose-headings:text-[#3B2F2F]
-
-    [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:my-6
-    [&_ol]:list-decimal [&_ol]:pl-6 [&_ol]:my-6
-    [&_li]:pl-1 [&_li]:my-2
-    [&_li>p]:m-0
-    [&_li::marker]:text-gray-400
-
+        )
+      }
+ <div   className="
+    prose prose-2xl
+    max-w-full
+    mx-auto
+    mt-8
     text-gray-700
+    leading-[1.84]
+    prose-p:text-[1.125rem] 
+    text-[1.1rem]
+
+    prose-p:my-4
+    prose-p:leading-[1.65]
+
+    prose-headings:mt-10
+    prose-headings:mb-4
+    prose-headings:font-heading
+    prose-headings:text-gray-800
+
+    prose-ul:my-4
+    prose-ol:my-4
+    prose-li:my-1
+    text-md
+    prose-ul:pl-6
+    prose-ol:pl-6
+    md:text-md
+    prose-a:text-blue-700
+    prose-a:no-underline
+    hover:prose-a:underline
+    prose-p:leading-relaxed
+
+    prose-blockquote:my-6
+    prose-blockquote:border-l-2
+    prose-blockquote:border-gray-300
+    prose-blockquote:pl-5
+    prose-blockquote:text-gray-600
+    prose-blockquote:not-italic
+    [overflow-wrap:anywhere]
   "
 >
-          <PortableText value={post.body ?? []} />
-        </div>
+<PortableText
+  value={post.body ?? []}
+  components={portableTextComponents}
+/>
+</div>
       </article>
 
       <Footer />
