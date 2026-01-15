@@ -17,6 +17,11 @@ const lato = Lato({
 export const metadata: Metadata = {
   title: "Memo Some",
   description: "Wildlife & Environmental Policy Analyst Blog",
+   icons: {
+    icon: [],
+    shortcut: [],
+    apple: [],
+  },
 
     openGraph: {
     title: "Memo Some",
