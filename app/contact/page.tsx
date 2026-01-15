@@ -65,7 +65,7 @@ export default function ContactPage() {
       </div>
 
       <main className="bg-white">
-        <section className="py-20 px-6 md:px-16">
+        <section className="py-10 px-6 md:px-16">
           <div className="max-w-3xl mx-auto space-y-10">
             {/* Heading */}
             <div className="space-y-4 text-center">
